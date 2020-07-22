@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useState, useEffect }  from 'react';
+import { useHistory } from "react-router-dom";
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -24,6 +25,7 @@ import { withRouter } from 'react-router';
 import  './app/common/css/global.scss';
 import Dashboard from './app/components/js/dashboard/dashboard'
 import classNames from 'classnames'
+import Login from './app/components/js/Login/login';
 
 function Copyright() {
   return (
@@ -101,7 +103,8 @@ const useStyles = makeStyles((theme) => ({
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    height: '100vh',
+    height: 'calc(100vh - 64px)',
+    width:'calc(100vw - 240px)',
     overflow: 'auto',
   },
   container: {
@@ -120,8 +123,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Template() {
+  const history = useHistory();
+  const [isAuthenticated, setAuthentication] = useState(false);
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (!(user && user !== "" && JSON.parse(user).id > 0)) {
+      setAuthentication(false);
+      history.push("/login");
+    }else{
+      setAuthentication(true);
+    }
+  },[]);
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -132,7 +146,9 @@ function Template() {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
+      <CssBaseline />{
+      isAuthenticated &&
+      <>
       <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
         <Toolbar className={classes.toolbar}>
           <IconButton
@@ -170,29 +186,29 @@ function Template() {
         <List>{mainListItems}</List>
         <Divider />
       </Drawer>
+      
+      </>
+}
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <BrowserRouter>
             <Grid container>
                 <Grid item xs={12}>
                     <Switch>
-                    {/* <Route path="/" exact component={withRouter(VisitorRegistration)} />
-                    <Route path="/home" exact component={withRouter(VisitorRegistration)} />
-                    <Route path="/index" exact component={withRouter(VisitorRegistration)} />
-                    <Route path="/login" exact component={withRouter(Login)} />
-                     */}
                      <Route path="/home" exact component={withRouter(Dashboard)} />
                      <Route path="/dashboard" exact component={withRouter(Dashboard)} />
+                     <Route path="/login" exact component={withRouter(Login)} />
                     </Switch>
                 </Grid>
             </Grid>
         </BrowserRouter>
-        <Container maxWidth="lg" className={[classes.container, 'footer'].join(" ")}>
+      
+      </main>
+      <Container maxWidth="lg" className={[classes.container, 'footer'].join(" ")}>
           <Box pt={4}>
             <Copyright />
           </Box>
         </Container>
-      </main>
     </div>
   );
 }

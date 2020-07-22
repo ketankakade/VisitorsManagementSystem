@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import {
   Grid,
   TextField,
@@ -19,13 +19,24 @@ import { useHistory } from "react-router-dom";
 
 // import { removeTypeDuplicates } from "@babel/types";
 
-function Login() {
+const UserData = require("./../../../common/data/UserData.json");
+
+
+
+function Login(props) {
+    const history = useHistory();
+    
+    useEffect(() => {
+        const user = localStorage.getItem("user");
+        if (user && user !== "" && JSON.parse(user).id > 0) {
+          history.push("/home");
+        }
+    },[props]);
+
   const EMAIL_REGEX = /^([\w+-]+(?:\.[\w+-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
-  let history = useHistory();
-
 
   const validateForm = () => {
     let formIsValid = true;
@@ -63,8 +74,19 @@ function Login() {
 
   const logIn = () => {
     if (validateForm()) {
-        history.push('/home');
-        alert("login");
+      var index = UserData.data.findIndex(
+        f =>
+          f.emailId.toLowerCase() === email.toLowerCase() &&
+          f.password === password
+      );
+      if (index > -1) {
+        localStorage.setItem("user", JSON.stringify(UserData.data[index]));
+        history.push("/home");
+      } else {
+        let errors = {};
+        errors["signInFailed"] = "Invalid login details";
+        setErrors(errors);
+      }
     }
   };
 
@@ -75,7 +97,11 @@ function Login() {
           <Grid container justify="center" className="row">
             <Grid item xs={8} sm={8} md={8} lg={8} xl={8}>
               <div className="centered">
-                <img alt="Quest" className="logo" src={process.env.PUBLIC_URL + '/images/logo.jpg'} />
+                <img
+                  alt="Quest"
+                  className="logo"
+                  src={process.env.PUBLIC_URL + "/images/logo.jpg"}
+                />
                 <Typography component="h6" variant="h5">
                   Sign in with your Quest account
                 </Typography>
@@ -131,6 +157,7 @@ function Login() {
                       control={<Checkbox value="remember" color="primary" />}
                       label="Remember me"
                     />
+                    <p className={"error"}>{errors["signInFailed"]}</p>
                     <Button
                       onClick={() => logIn()}
                       type="button"

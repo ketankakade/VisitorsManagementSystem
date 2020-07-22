@@ -8,8 +8,6 @@ import Login from './app/components/js/Login/login';
 import  './app/common/css/global.scss';
 import Template from './template';
 import Sidebar from './app/components/js/Sidebar/sidebar';
-import Dashboard from './app/components/js/dashboard/dashboard';
-
 
 function App() {
   return (
@@ -18,7 +16,6 @@ function App() {
       <Grid container justify='center'>
             <Switch>
               <Route path="/" exact component={withRouter(Login)} />
-              <Route path="/home" exact component={withRouter(Dashboard)} />
               <Route path="/index" exact component={withRouter(VisitorRegistration)} />
               <Route path="/login" exact component={withRouter(Login)} />
             </Switch>

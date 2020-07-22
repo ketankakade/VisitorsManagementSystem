@@ -1,75 +1,91 @@
-import React from 'react';
-import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
-import '../../../components/css/dashboard.scss';
+import React from "react";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import PropTypes from "prop-types";
+import Typography from "@material-ui/core/Typography";
+import "../../../components/css/dashboard.scss";
+import { TableContainer, Paper } from "@material-ui/core";
 
-// Generate Order Data
-function createData(id, name, mobNo, emailId, cpName, purpose) {
-  return { id, name, mobNo, emailId, cpName, purpose };
-}
+const visitorData = require("./../../../common/data/VisitorsData.json");
 
-const rows = [
-  createData(0, 'Asha Dave', 9456778785, 'asha@gmail.com', 'Shraddha', 'Interview'),
-  createData(1, 'Meera Vyas', 7856778788, 'meera@gmail.com', 'Rashi', 'Joining'),
-  createData(2, 'Mohanlal', 8756778765, 'mohan@gmail.com', 'Pravin', 'Vendor')
-];
+const StyledTableCell = withStyles(theme => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white
+  }
+}))(TableCell);
 
-function preventDefault(event) {
-  event.preventDefault();
-}
-
-const useStyles = makeStyles((theme) => ({
-  seeMore: {
-    marginTop: theme.spacing(3),
-  },
-}));
+const StyledTableRow = withStyles(theme => ({
+  root: {
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.action.hover
+    }
+  }
+}))(TableRow);
 
 function Title(props) {
   return (
-    <Typography className="tabTitle" component="h2" variant="h6" color="primary" gutterBottom>
+    <Typography
+      className="tabTitle"
+      component="h2"
+      variant="h6"
+      color="primary"
+      gutterBottom
+    >
       {props.children}
     </Typography>
   );
 }
 
 Title.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
-export default function Dashboard() {
+export default function Dashboard(props) {
+  
+  const useStyles = makeStyles({
+    table: {
+      minWidth: 700
+    }
+  });
+
   const classes = useStyles();
   return (
     <div className="parent">
       <Title>Recent Visitors</Title>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell>Mobile No</TableCell>
-            <TableCell>Email Id</TableCell>
-            <TableCell>Contact Person</TableCell>
-            <TableCell>Purpose Of Visit</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.mobNo}</TableCell>
-              <TableCell>{row.emailId}</TableCell>
-              <TableCell>{row.cpName}</TableCell>
-              <TableCell>{row.purpose}</TableCell>
+
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell align="left">Name</StyledTableCell>
+              <StyledTableCell align="right">Mobile No</StyledTableCell>
+              <StyledTableCell align="left">Email Id</StyledTableCell>
+              <StyledTableCell align="left">Contact Person</StyledTableCell>
+              <StyledTableCell align="left">Purpose Of Visit</StyledTableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHead>
+          <TableBody>
+            {visitorData.data.map(row => (
+              <StyledTableRow key={row.id}>
+                <StyledTableCell align="left">{row.name}</StyledTableCell>
+                <StyledTableCell align="right">{row.mobile}</StyledTableCell>
+                <StyledTableCell align="left">{row.emailId}</StyledTableCell>
+                <StyledTableCell align="left">
+                  {row.visiting.name}
+                </StyledTableCell>
+                <StyledTableCell align="left">
+                  {row.visiting.purpose}
+                </StyledTableCell>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
       {/* <div className={classes.seeMore}>
         <Link color="primary" href="#" onClick={preventDefault}>
           See more Visitors

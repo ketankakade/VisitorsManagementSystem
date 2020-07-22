@@ -1,0 +1,19 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "emailId": "leena@quest.com",
+            "password": "leena123"
+        },
+        {
+            "id": 2,
+            "emailId": "krupa@quest.com",
+            "password": "krupa123"
+        },
+        {
+            "id": 3,
+            "emailId": "rama@quest.com",
+            "password": "rama123"
+        }
+    ]
+}
