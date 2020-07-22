@@ -15,12 +15,17 @@ import "../../css/login.scss";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import SendIcon from "@material-ui/icons/Send";
+import { useHistory } from "react-router-dom";
+
+// import { removeTypeDuplicates } from "@babel/types";
 
 function Login() {
   const EMAIL_REGEX = /^([\w+-]+(?:\.[\w+-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
+  let history = useHistory();
+
 
   const validateForm = () => {
     let formIsValid = true;
@@ -58,7 +63,8 @@ function Login() {
 
   const logIn = () => {
     if (validateForm()) {
-      alert("login");
+        history.push('/home');
+        alert("login");
     }
   };
 
