@@ -1,5 +1,5 @@
 import React, { Component, useState }  from 'react';
-import '../../css/VisitorRegistration.css';
+import '../../css/VisitorRegistration.scss';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
