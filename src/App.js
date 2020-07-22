@@ -6,6 +6,9 @@ import { withRouter } from 'react-router';
 import VisitorRegistration from './app/components/js/Registration/VisitorRegistration';
 import Login from './app/components/js/Login/login';
 import  './app/common/css/global.scss';
+import Template from './template';
+import Sidebar from './app/components/js/Sidebar/sidebar';
+
 
 function App() {
   return (
@@ -13,14 +16,14 @@ function App() {
       <BrowserRouter>
       <Grid container justify='center'>
             <Switch>
-              <Route path="/" exact component={withRouter(VisitorRegistration)} />
+              <Route path="/" exact component={withRouter(Login)} />
               <Route path="/home" exact component={withRouter(VisitorRegistration)} />
               <Route path="/index" exact component={withRouter(VisitorRegistration)} />
               <Route path="/login" exact component={withRouter(Login)} />
-              
-              
             </Switch>
           </Grid>
+          <Route path="/home" exact component={withRouter(Template)} />
+
     </BrowserRouter>
     </div>
   );
