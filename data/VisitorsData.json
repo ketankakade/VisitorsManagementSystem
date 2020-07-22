@@ -1,0 +1,184 @@
+﻿{
+    "data": [
+        {
+            "id": 1,
+            "name": "Abhay Dalvi",
+            "emailId": "Abhay.Dalvi@gmail.com",
+            "mobile": "1111111111",
+            "address": "Pune",
+            "idNo": "ABCDE1234F",
+            "visitType": "Official",
+            "visiting": {
+                "id": "1",
+                "companyId": "1",
+                "company": "ABC Limited",
+                "name": "Prasanna Khandwe",
+                "contactNo": "1234",
+                "email": "Prasanna.Khandwe@quest-global.com",
+                "purpose": "Customer"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Vishal Godbole",
+            "emailId": "Vishal.Godbole@gmail.com",
+            "mobile": "2222222222",
+            "address": "Pune",
+            "idNo": "BCDEF1234G",
+            "visitType": "Official",
+            "visiting": {
+                "id": "2",
+                "companyId": "2",
+                "company": "BCD Pvt Ltd",
+                "name": "Pravin Patil",
+                "contactNo": "2345",
+                "email": "Pravin.Patil1@quest-global.com",
+                "purpose": "Vendor"
+            }
+        },
+        {
+            "id": 3,
+            "name": "Mahesh Adsule",
+            "emailId": "Mahesh.Adsule@gmail.com",
+            "mobile": "3333333333",
+            "address": "Pune",
+            "idNo": "CDEFG1234H",
+            "visitType": "Official",
+            "visiting": {
+                "id": "3",
+                "companyId": "3",
+                "company": "NA",
+                "name": "Ekta Ovhal",
+                "contactNo": "3456",
+                "email": "ekta.ovhal@mobiliya.com",
+                "purpose": "Joining"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Rahul Dhene",
+            "emailId": "Rahul.Dhene@gmail.com",
+            "mobile": "4444444444",
+            "address": "Pune",
+            "idNo": "DEFGH1234I",
+            "visitType": "Official",
+            "visiting": {
+                "id": "4",
+                "companyId": "3",
+                "company": "NA",
+                "name": "Kripa Sharma",
+                "contactNo": "4567",
+                "email": "Kripa.Upadhyay@quest-global.com",
+                "purpose": "Interview"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Bhanudas Kate",
+            "emailId": "Bhanudas.Kate@gmail.com",
+            "mobile": "5555555555",
+            "address": "Pune",
+            "idNo": "EFGHI1234J",
+            "visitType": "Official",
+            "visiting": {
+                "id": "5",
+                "companyId": "3",
+                "company": "NA",
+                "name": "Balaji Mortale",
+                "contactNo": "5678",
+                "email": "Balaji.Mortale@quest-global.com",
+                "purpose": "To submit the asset after exit"
+            }
+        },
+        {
+            "id": 6,
+            "name": "Shripad Khedekar",
+            "emailId": "Shripad.Khedekar@gmail.com",
+            "mobile": "6666666666",
+            "address": "Pune",
+            "idNo": "FGHIJ1234K",
+            "visitType": "Official",
+            "visiting": {
+                "id": "6",
+                "companyId": "3",
+                "company": "NA",
+                "name": "Kishori Rawerkar",
+                "contactNo": "6789",
+                "email": "kishori.raverkar@mobiliya.com",
+                "purpose": "To collect the document after exit"
+            }
+        },
+        {
+            "id": 7,
+            "name": "Sameer Kshirsagar",
+            "emailId": "Sameer.Kshirsagar@gmail.com",
+            "mobile": "7777777777",
+            "address": "Pune",
+            "idNo": "GHIJK1234L",
+            "visitType": "Official",
+            "visiting": {
+                "id": "7",
+                "companyId": "3",
+                "company": "NA",
+                "name": "Prasanna Khandwe",
+                "contactNo": "7890",
+                "email": "Prasanna.Khandwe@quest-global.com",
+                "purpose": "Govt work or inspection"
+            }
+        },
+        {
+            "id": 8,
+            "name": "Ganesh Alekar",
+            "emailId": "Ganesh.Alekar@gmail.com",
+            "mobile": "8888888888",
+            "address": "Pune",
+            "idNo": "HIJKL1234M",
+            "visitType": "Official",
+            "visiting": {
+                "id": "8",
+                "companyId": "4",
+                "company": "CDE Pvt Ltd",
+                "name": "Indranil Chowdhury",
+                "contactNo": "8901",
+                "email": "Indranil.Chowdhury@quest-global.com",
+                "purpose": "Sales and Marketing"
+            }
+        },
+        {
+            "id": 9,
+            "name": "Sachin Khuntale",
+            "emailId": "Sachin.khuntale@gmail.com",
+            "mobile": "9999999999",
+            "address": "Pune",
+            "idNo": "IJKLM1234N",
+            "visitType": "Official",
+            "visiting": {
+                "id": "9",
+                "companyId": "5",
+                "company": "QuEST",
+                "name": "Pravin Patil",
+                "contactNo": "9012",
+                "email": "Pravin.Patil1@quest-global.com",
+                "purpose": "Forgot the ID card"
+            }
+        },
+        {
+            "id": 10,
+            "name": "Rajendra Ghodekar",
+            "emailId": "Rajendra.Ghodekar@gmail.com",
+            "mobile": "7709011722",
+            "address": "Pune",
+            "idNo": "JKLMN1234O",
+            "visitType": "Personal",
+            "visiting": {
+                "id": "10",
+                "companyId": "6",
+                "company": "NA",
+                "name": "Sachin Khuntale",
+                "contactNo": "9034",
+                "email": "Sachin.Khuntale@quest-global.com",
+                "purpose": "Friend"
+            }
+        }
+    ]
+}
