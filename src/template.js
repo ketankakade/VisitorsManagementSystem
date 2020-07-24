@@ -24,8 +24,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import  './app/common/css/global.scss';
 import Dashboard from './app/components/js/dashboard/dashboard'
+import EnhancedTable from './app/components/js/dashboard/table'
 import classNames from 'classnames'
 import Login from './app/components/js/Login/login';
+import Users from './app/components/js/users/users';
 
 function Copyright() {
   return (
@@ -195,8 +197,9 @@ function Template() {
             <Grid container>
                 <Grid item xs={12}>
                     <Switch>
-                     <Route path="/home" exact component={withRouter(Dashboard)} />
+                     <Route path="/home" exact component={withRouter(EnhancedTable)} />
                      <Route path="/dashboard" exact component={withRouter(Dashboard)} />
+                     <Route path="/users" exact component={withRouter(Users)} />
                      <Route path="/login" exact component={withRouter(Login)} />
                     </Switch>
                 </Grid>
