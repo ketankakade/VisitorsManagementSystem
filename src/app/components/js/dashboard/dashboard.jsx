@@ -2,6 +2,7 @@ import React from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
+import {connect } from 'react-redux';
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
@@ -9,8 +10,14 @@ import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 import "../../../components/css/dashboard.scss";
 import { TableContainer, Paper } from "@material-ui/core";
+import detailsRedux from "../duck";
+
 
 const visitorData = require("./../../../common/data/VisitorsData.json");
+
+const { operations } = detailsRedux;
+const { getAllVisitorsDetails } = operations;
+
 
 const StyledTableCell = withStyles(theme => ({
   head: {
@@ -45,7 +52,7 @@ Title.propTypes = {
   children: PropTypes.node
 };
 
-export default function Dashboard(props) {
+function Dashboard(props) {
   
   const useStyles = makeStyles({
     table: {
@@ -94,3 +101,9 @@ export default function Dashboard(props) {
     </div>
   );
 }
+const mapDispatchToProps = dispatch => {
+  return {
+    getAllVisitorsDetails: (email,password) => dispatch(getAllVisitorsDetails(email,password))
+  };
+};
+export default connect(null, mapDispatchToProps)(Dashboard);
