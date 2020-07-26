@@ -16,22 +16,23 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import SendIcon from "@material-ui/icons/Send";
 import { useHistory } from "react-router-dom";
+import detailsRedux from "../duck";
+import { connect } from "react-redux";
 
-// import { removeTypeDuplicates } from "@babel/types";
+const { operations } = detailsRedux;
+const { userLoginDetails, setUserSessionDetails } = operations;
 
-const UserData = require("./../../../common/data/UserData.json");
-
-
+// const UserData = require("./../../../common/data/UserData.json");
 
 function Login(props) {
-    const history = useHistory();
-    
-    useEffect(() => {
-        const user = localStorage.getItem("user");
-        if (user && user !== "" && JSON.parse(user).id > 0) {
-          history.push("/home");
-        }
-    },[props]);
+  const history = useHistory();
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user && user !== "" && JSON.parse(user).id > 0) {
+      history.push("/home");
+    }
+  }, [props]);
 
   const EMAIL_REGEX = /^([\w+-]+(?:\.[\w+-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
   const [email, setEmail] = useState("");
@@ -74,19 +75,29 @@ function Login(props) {
 
   const logIn = () => {
     if (validateForm()) {
-      var index = UserData.data.findIndex(
-        f =>
-          f.emailId.toLowerCase() === email.toLowerCase() &&
-          f.password === password
-      );
-      if (index > -1) {
-        localStorage.setItem("user", JSON.stringify(UserData.data[index]));
-        history.push("/home");
-      } else {
-        let errors = {};
-        errors["signInFailed"] = "Invalid login details";
-        setErrors(errors);
-      }
+      let errors = {};
+      props
+        .userLoginDetails(email.toLowerCase(), password)
+        .then(data => {
+          if (data && data.emailId.toLowerCase() === email.toLowerCase()) {
+            props.setUserSessionDetails(data).then(() => {
+              history.push("/home");
+            });
+          } else {
+            errors["signInFailed"] = "Invalid login details";
+            setErrors(errors);
+          }
+        })
+        .catch(() => {
+          errors["signInFailed"] = "Invalid login details";
+          setErrors(errors);
+        });
+    }
+  };
+
+  const keyDownControl = e => {
+    if (e.key === "Enter") {
+      logIn();
     }
   };
 
@@ -113,6 +124,7 @@ function Login(props) {
                       error={errors["email"] ? true : false}
                       value={email}
                       onChange={e => changeControlValue(e, "email")}
+                      onKeyDown={keyDownControl}
                       helperText={errors["email"]}
                       variant="outlined"
                       margin="normal"
@@ -135,6 +147,7 @@ function Login(props) {
                       error={errors["password"] ? true : false}
                       value={password}
                       onChange={e => changeControlValue(e, "password")}
+                      onKeyDown={keyDownControl}
                       helperText={errors["password"]}
                       variant="outlined"
                       margin="normal"
@@ -191,4 +204,18 @@ function Login(props) {
   );
 }
 
-export default Login;
+//export default Login;
+// const mapStateToProps = ({ details }) => {
+//   return {
+//     details: details? details.userDetails:{}
+//   };
+// };
+
+const mapDispatchToProps = dispatch => {
+  return {
+    userLoginDetails: (email, password) =>
+      dispatch(userLoginDetails(email, password)),
+    setUserSessionDetails: user => dispatch(setUserSessionDetails(user))
+  };
+};
+export default connect(null, mapDispatchToProps)(Login);
