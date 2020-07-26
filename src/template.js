@@ -27,6 +27,8 @@ import classNames from 'classnames'
 import Login from './app/components/js/Login/login';
 import detailsRedux from './app/components/js/duck';
 import { connect } from "react-redux";
+import TabsNav from './app/components/js/tabs/tabs'
+import { Tab } from 'material-ui';
 
 const { operations } = detailsRedux;
 const { getUserSessionDetails, clearUserSessionDetails } = operations;
@@ -212,7 +214,7 @@ function Template(props) {
           <Grid container>
             <Grid item xs={12}>
               <Switch>
-                <Route path="/home" exact component={withRouter(Dashboard)} />
+                <Route path="/home" exact component={withRouter(TabsNav)} />
                 <Route path="/dashboard" exact component={withRouter(Dashboard)} />
                 <Route path="/login" exact component={withRouter(Login)} />
               </Switch>
