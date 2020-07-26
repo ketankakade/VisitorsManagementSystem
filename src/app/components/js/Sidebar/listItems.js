@@ -10,19 +10,19 @@ import LayersIcon from '@material-ui/icons/Layers';
 
 export const mainListItems = (
   <div>
-    <ListItem button>
+    <ListItem button key="Home" component="a" href="home">
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItem>
-    <ListItem button>
+    <ListItem button key="Users" component="a" href="users">
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Users" />
     </ListItem>
-    <ListItem button>
+    <ListItem button key="Home" component="a" href="home">
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
