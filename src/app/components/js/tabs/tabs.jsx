@@ -8,8 +8,8 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import EnhancedTable from '../dashboard/Table';
 import Box from '@material-ui/core/Box';
-import Dashboard from '../dashboard/dashboard';
-import UnApprovedUsers from '../dashboard/unApprovedUsers';
+import Dashboard from '../dashboard/Dashboard';
+import UnApprovedUsers from '../dashboard/UnApprovedUser';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
