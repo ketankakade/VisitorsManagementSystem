@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import EnhancedTable from '../dashboard/table';
 import Box from '@material-ui/core/Box';
 import Dashboard from '../dashboard/dashboard';
+import UnApprovedUsers from '../dashboard/unApprovedUsers';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -36,7 +37,7 @@ TabPanel.propTypes = {
   value: PropTypes.any.isRequired,
 };
 
-function a11yProps(index) {
+function tabProps(index) {
   return {
     id: `full-width-tab-${index}`,
     'aria-controls': `full-width-tabpanel-${index}`,
@@ -74,11 +75,11 @@ export default function TabsNav() {
           variant="fullWidth"
           aria-label="full width tabs example"
         >
-          <Tab label="Unapproved User" {...a11yProps(0)} />
-          <Tab label="Temp Card user" {...a11yProps(1)} />
-          <Tab label="Today" {...a11yProps(2)} />
-          <Tab label="This Month" {...a11yProps(3)} />
-          <Tab label="Ongoing Visits" {...a11yProps(4)} />
+          <Tab label="Unapproved User" {...tabProps(0)} />
+          <Tab label="Temp Card user" {...tabProps(1)} />
+          <Tab label="Today" {...tabProps(2)} />
+          <Tab label="This Month" {...tabProps(3)} />
+          <Tab label="Ongoing Visits" {...tabProps(4)} />
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -87,13 +88,15 @@ export default function TabsNav() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-        List of Un-Approved Visits for Facility
+          <UnApprovedUsers />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
         List of top 10 Employees Using Temporary Access for Facility
+          <Dashboard />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
         No of Visitors to Facility today
+          <Dashboard />
         </TabPanel>
         <TabPanel value={value} index={3} dir={theme.direction}>
         No of Visitors to Facility this month

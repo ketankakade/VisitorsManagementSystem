@@ -21,7 +21,7 @@ const { getAllVisitorsDetails } = operations;
 
 const StyledTableCell = withStyles(theme => ({
   head: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: theme.palette.primary.main,
     color: theme.palette.common.white
   }
 }))(TableCell);
@@ -63,7 +63,7 @@ function Dashboard(props) {
   const classes = useStyles();
   return (
     <div className="parent">
-      <Title>Recent Visitors</Title>
+      <Title>Visitors List</Title>
 
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
