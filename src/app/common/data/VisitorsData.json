@@ -8,6 +8,7 @@
             "address": "Pune",
             "idNo": "ABCDE1234F",
             "visitType": "Official",
+            "active": false,
             "visiting": {
                 "id": "1",
                 "companyId": "1",
@@ -26,6 +27,7 @@
             "address": "Pune",
             "idNo": "BCDEF1234G",
             "visitType": "Official",
+            "active": true,
             "visiting": {
                 "id": "2",
                 "companyId": "2",
@@ -44,6 +46,7 @@
             "address": "Pune",
             "idNo": "CDEFG1234H",
             "visitType": "Official",
+            "active": true,
             "visiting": {
                 "id": "3",
                 "companyId": "3",
@@ -62,6 +65,7 @@
             "address": "Pune",
             "idNo": "DEFGH1234I",
             "visitType": "Official",
+            "active": false,
             "visiting": {
                 "id": "4",
                 "companyId": "3",
@@ -80,6 +84,7 @@
             "address": "Pune",
             "idNo": "EFGHI1234J",
             "visitType": "Official",
+            "active": true,
             "visiting": {
                 "id": "5",
                 "companyId": "3",
@@ -98,6 +103,7 @@
             "address": "Pune",
             "idNo": "FGHIJ1234K",
             "visitType": "Official",
+            "active": true,
             "visiting": {
                 "id": "6",
                 "companyId": "3",
@@ -116,6 +122,7 @@
             "address": "Pune",
             "idNo": "GHIJK1234L",
             "visitType": "Official",
+            "active": true,
             "visiting": {
                 "id": "7",
                 "companyId": "3",
@@ -134,6 +141,7 @@
             "address": "Pune",
             "idNo": "HIJKL1234M",
             "visitType": "Official",
+            "active": true,
             "visiting": {
                 "id": "8",
                 "companyId": "4",
@@ -152,6 +160,7 @@
             "address": "Pune",
             "idNo": "IJKLM1234N",
             "visitType": "Official",
+            "active": true,
             "visiting": {
                 "id": "9",
                 "companyId": "5",
@@ -170,6 +179,7 @@
             "address": "Pune",
             "idNo": "JKLMN1234O",
             "visitType": "Personal",
+            "active": true,
             "visiting": {
                 "id": "10",
                 "companyId": "6",
@@ -178,6 +188,25 @@
                 "contactNo": "9034",
                 "email": "Sachin.Khuntale@quest-global.com",
                 "purpose": "Friend"
+            }
+        },
+        {
+            "id": 11,
+            "name": "Ramesh Suraiya",
+            "emailId": "ramesh.s@gmail.com",
+            "mobile": "3483282822",
+            "address": "Pune",
+            "idNo": "IDPOLPS234N",
+            "visitType": "Official",
+            "active": true,
+            "visiting": {
+                "id": "9",
+                "companyId": "5",
+                "company": "QuEST",
+                "name": "Pravin Patil",
+                "contactNo": "9012",
+                "email": "Pravin.Patil1@quest-global.com",
+                "purpose": "Forgot the ID card"
             }
         }
     ]
