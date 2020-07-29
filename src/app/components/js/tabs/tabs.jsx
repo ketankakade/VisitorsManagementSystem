@@ -6,10 +6,11 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import EnhancedTable from '../dashboard/Table';
+import EnhancedTable from '../dashboard/thisMonth';
 import Box from '@material-ui/core/Box';
-import Dashboard from '../dashboard/Dashboard';
+import Dashboard from '../dashboard/dashboard';
 import UnApprovedUsers from '../dashboard/UnApprovedUser';
+import TempCardUsers from '../dashboard/tempCardUsers';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -92,7 +93,7 @@ export default function TabsNav() {
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
         List of top 10 Employees Using Temporary Access for Facility
-          <Dashboard />
+          <TempCardUsers />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
         No of Visitors to Facility today

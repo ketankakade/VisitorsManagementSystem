@@ -34,6 +34,14 @@ const StyledTableRow = withStyles(theme => ({
   }
 }))(TableRow);
 
+// const rows = visitorData.data.filter(e=>e.visiting.purpose = 'Forgot the ID card');
+
+var rows =  visitorData.data.filter(function(e) {
+	return e.visiting.purpose == "Forgot the ID card";
+});
+
+console.log("Rows ",rows);
+
 function Title(props) {
   return (
     <Typography
@@ -52,7 +60,7 @@ Title.propTypes = {
   children: PropTypes.node
 };
 
-function Dashboard(props) {
+function TempCardUsers(props) {
   
   const useStyles = makeStyles({
     table: {
@@ -72,23 +80,17 @@ function Dashboard(props) {
               <StyledTableCell align="left">Name</StyledTableCell>
               <StyledTableCell align="right">Mobile No</StyledTableCell>
               <StyledTableCell align="left">Email Id</StyledTableCell>
-              <StyledTableCell align="left">Contact Person</StyledTableCell>
-              <StyledTableCell align="left">Purpose Of Visit</StyledTableCell>
+              <StyledTableCell align="left">Id No</StyledTableCell>
               <StyledTableCell align="left">Active Visit</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {visitorData.data.map(row => (
+            {rows.map(row => (
               <StyledTableRow key={row.id}>
                 <StyledTableCell align="left">{row.name}</StyledTableCell>
                 <StyledTableCell align="left">{row.mobile}</StyledTableCell>
-                <StyledTableCell align="left">{row.emailId}</StyledTableCell>
-                <StyledTableCell align="left">
-                  {row.visiting.name}
-                </StyledTableCell>
-                <StyledTableCell align="left">
-                  {row.visiting.purpose}
-                </StyledTableCell>
+                <StyledTableCell align="left">{row.emailId}</StyledTableCell>                
+                <StyledTableCell align="left">{row.idNo}</StyledTableCell>
                 <StyledTableCell align="left">
                   {row.active ? 'Yes' : 'No'}
                 </StyledTableCell>
@@ -110,4 +112,4 @@ const mapDispatchToProps = dispatch => {
     getAllVisitorsDetails: (email,password) => dispatch(getAllVisitorsDetails(email,password))
   };
 };
-export default connect(null, mapDispatchToProps)(Dashboard);
+export default connect(null, mapDispatchToProps)(TempCardUsers);
