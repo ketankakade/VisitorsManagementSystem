@@ -40,7 +40,7 @@ function PopoverPopupState(props) {
               horizontal: 'center',
             }}
           >
-            <Box p={2}>
+           <Box p={2}>
               <Typography>
                 <ListItem button key="Profile" component="a" href="profile">
                     <ListItemText primary="Profile" />
