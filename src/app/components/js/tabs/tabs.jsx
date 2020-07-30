@@ -5,12 +5,12 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
 import EnhancedTable from '../dashboard/thisMonth';
+import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Dashboard from '../dashboard/dashboard';
+import Dashboard from '../dashboard/Dashboard';
 import UnApprovedUsers from '../dashboard/UnApprovedUser';
-import TempCardUsers from '../dashboard/tempCardUsers';
+import TempCardUsers from '../dashboard/TempCardUsers';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -24,8 +24,8 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box p={5}>
-          <Typography>{children}</Typography>
+       <Box div={5}>
+          <Typography component="div">{children}</Typography>
         </Box>
       )}
     </div>
@@ -35,21 +35,21 @@ function TabPanel(props) {
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired
 };
 
 function tabProps(index) {
   return {
     id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
+    "aria-controls": `full-width-tabpanel-${index}`
   };
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.paper
     // width: 1000,
-  },
+  }
 }));
 
 export default function TabsNav() {
@@ -61,7 +61,7 @@ export default function TabsNav() {
     setValue(newValue);
   };
 
-  const handleChangeIndex = (index) => {
+  const handleChangeIndex = index => {
     setValue(index);
   };
 
@@ -84,7 +84,7 @@ export default function TabsNav() {
         </Tabs>
       </AppBar>
       <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={value}
         onChangeIndex={handleChangeIndex}
       >
@@ -96,16 +96,16 @@ export default function TabsNav() {
           <TempCardUsers />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-        No of Visitors to Facility today
+          No of Visitors to Facility today
           <Dashboard />
         </TabPanel>
         <TabPanel value={value} index={3} dir={theme.direction}>
-        No of Visitors to Facility this month
-        <EnhancedTable />
+          No of Visitors to Facility this month
+          <EnhancedTable />
         </TabPanel>
         <TabPanel value={value} index={4} dir={theme.direction}>
-        List of Ongoing Visits for Facility
-        <Dashboard />
+          List of Ongoing Visits for Facility
+          <Dashboard />
         </TabPanel>
       </SwipeableViews>
     </div>

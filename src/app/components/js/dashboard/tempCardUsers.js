@@ -37,7 +37,7 @@ const StyledTableRow = withStyles(theme => ({
 // const rows = visitorData.data.filter(e=>e.visiting.purpose = 'Forgot the ID card');
 
 var rows =  visitorData.data.filter(function(e) {
-	return e.visiting.purpose == "Forgot the ID card";
+	return e.visiting.purpose ==="Forgot the ID card";
 });
 
 console.log("Rows ",rows);
