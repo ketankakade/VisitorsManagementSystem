@@ -10,6 +10,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
+    "material-table": "^1.67.1",
     "material-ui": "^0.20.2",
     "material-ui-popup-state": "^1.6.1",
     "node-sass": "^4.14.1",
