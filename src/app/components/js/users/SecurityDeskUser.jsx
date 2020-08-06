@@ -1,10 +1,12 @@
 import React from 'react';
 import MaterialTable from 'material-table';
+import Link from "@material-ui/core/Link";
 const secutiryData = require("../../../common/data/SecurityData.json");
 
 
 export default function SecurityDeskTable() {
 
+    const cursor = {cursor: 'pointer'}
     console.log("Sec ",secutiryData.data);
     const rows = secutiryData.data;
     let obj= [];
@@ -23,7 +25,9 @@ export default function SecurityDeskTable() {
 
   const [state, setState] = React.useState({
     columns: [
-      { title: 'SECURITY NAME', field: 'security_User' },
+      { title: 'SECURITY NAME', field: 'security_User',
+      render: obj => <Link tooltip="View Security User Details" style={cursor} to="/users/{obj.security_User}">{obj.security_User}</Link>,
+      },
       { title: 'CONTACT NO', field: 'contact_No' },
       { title: 'ALL DESK', field: 'desk'},
       { title: 'JOB SHIFT', field: 'job_shift'},
