@@ -27,6 +27,7 @@ import Dashboard from "./app/components/js/dashboard/Dashboard";
 import detailsRedux from "./app/components/js/duck";
 import { connect } from "react-redux";
 import SecurityDeskTable from "./app/components/js/users/SecurityDeskUser";
+import Reports from "./app/components/js/Reports/Reports";
 
 const { operations } = detailsRedux;
 const { getUserSessionDetails, clearUserSessionDetails } = operations;
@@ -210,6 +211,7 @@ export function Template(props) {
               <Route path="/" exact component={withRouter(TabsNav)} />
               <Route path="/home" exact component={withRouter(TabsNav)} />
               <Route path="/users" exact component={withRouter(SecurityDeskTable)} />
+              <Route path="/reports" exact component={withRouter(Reports)} />
               <Route
                 path="/dashboard"
                 exact
