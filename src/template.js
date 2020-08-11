@@ -26,7 +26,8 @@ import Dashboard from "./app/components/js/dashboard/Dashboard";
 
 import detailsRedux from "./app/components/js/duck";
 import { connect } from "react-redux";
-import Users from "./app/components/js/users/users";
+import SecurityDeskTable from "./app/components/js/users/SecurityDeskUser";
+import Reports from "./app/components/js/Reports/Reports";
 
 const { operations } = detailsRedux;
 const { getUserSessionDetails, clearUserSessionDetails } = operations;
@@ -168,9 +169,12 @@ export function Template(props) {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" noWrap>
+            <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
               Visitor Management System
             </Typography>
+            {/* <IconButton color="inherit">
+              <PopoverPopupState />
+            </IconButton> */}
           </Toolbar>
         </AppBar>
         <BrowserRouter>
@@ -204,8 +208,10 @@ export function Template(props) {
             <div className={classes.toolbar} />
 
             <Switch>
+              <Route path="/" exact component={withRouter(TabsNav)} />
               <Route path="/home" exact component={withRouter(TabsNav)} />
-              <Route path="/users" exact component={withRouter(Users)} />
+              <Route path="/users" exact component={withRouter(SecurityDeskTable)} />
+              <Route path="/reports" exact component={withRouter(Reports)} />
               <Route
                 path="/dashboard"
                 exact

@@ -13,7 +13,7 @@ import { TableContainer, Paper } from "@material-ui/core";
 import detailsRedux from "../duck";
 
 
-const visitorData = require("./../../../common/data/VisitorsData.json");
+const visitorData = require("../../../common/data/VisitorsData.json");
 
 const { operations } = detailsRedux;
 const { getAllVisitorsDetails } = operations;

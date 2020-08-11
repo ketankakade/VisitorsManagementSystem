@@ -99,7 +99,7 @@ export default function MainListItems(props) {
       <ListItem    button
         key="Reports"
         component={NavLink}
-        to="/Reports"
+        to="/reports"
         activeClassName={classes.active} exact>
         <ListItemIcon>
           <BarChartIcon />

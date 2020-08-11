@@ -3,47 +3,74 @@
         {
             "id": "1",
             "security_User": "Babul S",
-            "contact_No": "1111111112"
+            "contact_No": "1111111112",
+             "desk": "4th Floor, Front Desk",
+            "job_shift": "10:00am - 06:00pm",
+            "status": "On Duty"
         },
         {
             "id": "2",
             "security_User": "Milan S",
-            "contact_No": "2222222223"
+            "contact_No": "2222222223",
+            "desk": "4th Floor, Front Desk",
+            "job_shift": "10:00am - 06:00pm",
+            "status": "On Duty"
         },
         {
             "id": "3",
             "security_User": "Budhadeo S",
-            "contact_No": "3333333334"
+            "contact_No": "3333333334",
+            "desk": "7th Floor, Front Desk",
+            "job_shift": "10:00am - 06:00pm",
+            "status": "On Duty"
         },
         {
             "id": "4",
             "security_User": "Kishor Kadam",
-            "contact_No": "4444444445"
+            "contact_No": "4444444445",
+            "desk": "4th Floor, Front Desk",
+            "job_shift": "10:00am - 06:00pm",
+            "status": "On Duty"
         },
         {
             "id": "5",
             "security_User": "Biswanath S",
-            "contact_No": "5555555556"
+            "contact_No": "5555555556",
+            "desk": "4th Floor, Front Desk",
+            "job_shift": "10:00am - 06:00pm",
+            "status": "On Duty"
         },
         {
             "id": "6",
             "security_User": "Aarti Patil",
-            "contact_No": "6666666667"
+            "contact_No": "6666666667",
+            "desk": "5th Floor, Front Desk",
+            "job_shift": "10:00am - 06:00pm",
+            "status": "On Duty"
         },
         {
             "id": "7",
             "security_User": "Prakash Pawar",
-            "contact_No": "7777777778"
+            "contact_No": "7777777778",
+            "desk": "4th Floor, Front Desk",
+            "job_shift": "10:00am - 06:00pm",
+            "status": "On Duty"
         },
         {
             "id": "8",
             "security_User": "Govind K",
-            "contact_No": "8888888889"
+            "contact_No": "8888888889",
+            "desk": "4th Floor, Front Desk",
+            "job_shift": "10:00am - 06:00pm",
+            "status": "On Duty"
         },
         {
             "id": "9",
             "security_User": "Atish Salunkhe",
-            "contact_No": "9999999990"
+            "contact_No": "9999999990",
+            "desk": "5th Floor, Front Desk",
+            "job_shift": "10:00am - 06:00pm",
+            "status": "On Duty"
         }
     ]
 }
