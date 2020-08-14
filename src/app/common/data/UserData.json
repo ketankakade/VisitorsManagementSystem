@@ -3,17 +3,20 @@
         {
             "id": 1,
             "emailId": "leena@quest.com",
-            "password": "leena123"
+            "password": "leena123",
+            "name":"Leena Patil"
         },
         {
             "id": 2,
             "emailId": "krupa@quest.com",
-            "password": "krupa123"
+            "password": "krupa123",
+            "name":"Krupa"
         },
         {
             "id": 3,
             "emailId": "rama@quest.com",
-            "password": "rama123"
+            "password": "rama123",
+            "name":"Rama"
         }
     ]
 }

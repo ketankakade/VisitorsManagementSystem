@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import ListItem from "@material-ui/core/ListItem";
@@ -12,7 +12,8 @@ import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import StarBorder from "@material-ui/icons/StarBorder";
 import List from "@material-ui/core/List";
-
+import Divider from "@material-ui/core/Divider";
+  
 const useStyles = makeStyles(theme => ({
   root: {
     width: "100%",
@@ -24,7 +25,8 @@ const useStyles = makeStyles(theme => ({
   },
   active:{
     backgroundColor: theme.palette.primary.main,
-  }
+  },
+
 }));
 
 export default function MainListItems(props) {
@@ -41,7 +43,7 @@ export default function MainListItems(props) {
         button
         key="Home"
         component={NavLink}
-        to="/home"
+        to="/newdash"
         activeClassName={classes.active} exact
       >
         <ListItemIcon>
@@ -49,6 +51,7 @@ export default function MainListItems(props) {
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
       </ListItem>
+      <Divider />
       <ListItem button onClick={handleUserClick}>
         <ListItemIcon>
           <PeopleIcon />
@@ -56,13 +59,14 @@ export default function MainListItems(props) {
         <ListItemText primary="Users" />
         {openUser ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
+      <Divider />
       <Collapse in={openUser} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItem
             button
             className={classes.nested}
             component={NavLink}
-            to="/users"
+            to="/allusers"
             activeClassName={classes.active} exact
           >
             <ListItemIcon>
@@ -70,11 +74,12 @@ export default function MainListItems(props) {
             </ListItemIcon>
             <ListItemText primary="Security Management" />
           </ListItem>
+          <Divider />
           <ListItem
             button
             className={classes.nested}
             component={NavLink}
-            to="/unapproved users"
+            to="/unapprovedUsers"
             activeClassName={classes.active} exact
           >
             <ListItemIcon>
@@ -82,11 +87,12 @@ export default function MainListItems(props) {
             </ListItemIcon>
             <ListItemText primary="User Management" />
           </ListItem>
+          <Divider />
           <ListItem
             button
             className={classes.nested}
             component={NavLink}
-            to="/unapproved users"
+            to="/unapprovedUsers"
             activeClassName={classes.active} exact
           >
             <ListItemIcon>
@@ -94,6 +100,7 @@ export default function MainListItems(props) {
             </ListItemIcon>
             <ListItemText primary="VII Management" />
           </ListItem>
+          <Divider />
         </List>
       </Collapse>
       <ListItem    button

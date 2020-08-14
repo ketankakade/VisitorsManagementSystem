@@ -1,0 +1,31 @@
+.visitorDetailsForm {
+  margin: 0 15px;
+  .visitorAvtar {
+    box-sizing: border-box;
+    display: flex;
+    height: 90px;
+    width: 90px;
+    padding:10px;
+  }
+  .parentTable {
+    width: 100%;
+
+    .VisitorTable {
+      text-align: left;
+      th {
+        height: 50px;
+        padding: 15px;
+      }
+      td {
+        padding: 15px;
+        .tableStyle {
+          font-size: medium;
+          font-weight: bold;
+        }
+        .backbutton {
+            margin: 15px;
+        }
+      }
+    }
+  }
+}

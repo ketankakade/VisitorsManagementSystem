@@ -186,7 +186,7 @@ function Sidebar() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.REACT_APP_ROUTER_BASE || ''}>
           <Grid container justify="center">
             <Switch>
               <Route
