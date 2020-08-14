@@ -177,7 +177,7 @@ export function Template(props) {
             </IconButton> */}
           </Toolbar>
         </AppBar>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.REACT_APP_ROUTER_BASE || ''}>
           <Drawer
             variant="permanent"
             className={clsx(classes.drawer, {
@@ -217,6 +217,11 @@ export function Template(props) {
                 exact
                 component={withRouter(Dashboard)}
               />
+              {/* <Route
+                path="/newdash"
+                exact
+                component={withRouter(DashboardNew)}
+              /> */}
             </Switch>
           </main>
         </BrowserRouter>
