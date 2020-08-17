@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import { connect } from "react-redux";
 import Divider from "@material-ui/core/Divider";
-// import Button from '@material-ui/core/Button';
 import "../../css/VisitorDetails.scss";
-
 
 import detailsRedux from "../duck";
 
@@ -48,7 +46,6 @@ function VisitorsDetails(props) {
             </td>
             <td style={{ width: "50%" }}>
               <p className="tableStyle">Visitor Email Id</p>
-              {/* <br /> */}
               {visitor.email}
             </td>
           </tr>
@@ -129,9 +126,6 @@ function VisitorsDetails(props) {
             </td>
           </tr>
           <Divider />
-          {/* <div className="backbutton">
-          <Button variant="contained">Back</Button>
-          </div> */}
         </table>
       </Grid>
     </div>

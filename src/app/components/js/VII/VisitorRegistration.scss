@@ -1,0 +1,21 @@
+.registrationForm {
+  margin: 0 105px;
+  font-family: 'Segoe UI', 'Roboto';
+  .headingContent {
+    text-align: center;
+    margin: 20px 30px 20px 30px;
+    letter-spacing: 0px;
+    color: #111111;
+    .h1 {
+      font-weight:bold;
+    }
+    .p {
+      font-size: 24px;
+    }
+  }
+  .subHeading {
+    .h2 {
+        text-align:left;
+    }
+}
+}

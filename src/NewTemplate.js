@@ -32,7 +32,8 @@ const useStyles = makeStyles(theme => ({
     width: "98%"
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 1
+    zIndex: theme.zIndex.drawer + 1,
+      backgroundColor:'#0F72A1'
   },
   drawer: {
     width: drawerWidth,

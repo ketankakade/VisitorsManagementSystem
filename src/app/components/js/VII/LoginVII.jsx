@@ -2,19 +2,14 @@ import React, { Fragment, useState, useEffect } from "react";
 import {
   Grid,
   TextField,
-  FormControlLabel,
-  Checkbox,
   Button,
-  Link,
   Typography,
   CardContent,
   Card,
   InputAdornment
 } from "@material-ui/core";
 import "../../css/login.scss";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import VpnKeyIcon from "@material-ui/icons/VpnKey";
-import SendIcon from "@material-ui/icons/Send";
+import EmailIcon from '@material-ui/icons/Email';
 import { useHistory } from "react-router-dom";
 import detailsRedux from "../duck";
 import { connect } from "react-redux";
@@ -36,7 +31,6 @@ function Login(props) {
 
   const EMAIL_REGEX = /^([\w+-]+(?:\.[\w+-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
 
   const validateForm = () => {
@@ -51,10 +45,6 @@ function Login(props) {
         errors["email"] = "Invalid email address";
       }
     }
-    if (password === "") {
-      formIsValid = false;
-      errors["password"] = "Password cannot be blank";
-    }
     setErrors(errors);
     return formIsValid;
   };
@@ -65,9 +55,6 @@ function Login(props) {
       case "email":
         setEmail(value);
         break;
-      case "password":
-        setPassword(value);
-        break;
       default:
         break;
     }
@@ -77,7 +64,7 @@ function Login(props) {
     if (validateForm()) {
       let errors = {};
       props
-        .userLoginDetails(email.toLowerCase(), password)
+        .userLoginDetails(email.toLowerCase())
         .then(data => {
           if (data && data.emailId.toLowerCase() === email.toLowerCase()) {
             props.setUserSessionDetails(data).then(() => {
@@ -105,20 +92,22 @@ function Login(props) {
     <Fragment>
       <div className="login-content">
         <div className="sign-in">
-          <Grid container justify="center" className="row">
-            <Grid item xs={8} sm={8} md={8} lg={8} xl={8}>
-              <div className="centered">
-                <img
-                  alt="Quest"
-                  className="logo"
-                  src={process.env.PUBLIC_URL + "/images/Quest2x.png"}
-                />
-                <Typography component="h6" variant="h5">
-                  Sign in with your Quest account
-                </Typography>
-              </div>
+          <Grid container justify="flex-end" className="row">
+            <Grid item xs={12} sm={12} md={6} lg={9} xl={8} justify="flex-end">
+              
               <Card>
                 <CardContent>
+                <div className="centered">
+                  <img
+                    alt="Quest"
+                    className="logo"
+                    src={process.env.PUBLIC_URL + "/images/logo.jpg"}
+                  />
+                  
+                </div>
+                <Typography component="h6" variant="h6">
+                  SIGN IN
+                </Typography>
                   <form noValidate>
                     <TextField
                       error={errors["email"] ? true : false}
@@ -126,50 +115,27 @@ function Login(props) {
                       onChange={e => changeControlValue(e, "email")}
                       onKeyDown={keyDownControl}
                       helperText={errors["email"]}
-                      variant="outlined"
+                      
                       margin="normal"
                       required
                       fullWidth
                       id="email"
-                      label="Email Address"
+                      label="Email ID"
                       name="email"
                       autoComplete="email"
                       autoFocus
                       InputProps={{
-                        endAdornment: (
+                        startAdornment: (
                           <InputAdornment position="start">
-                            <AccountCircle />
+                            <EmailIcon />
                           </InputAdornment>
                         )
                       }}
                     />
-                    <TextField
-                      error={errors["password"] ? true : false}
-                      value={password}
-                      onChange={e => changeControlValue(e, "password")}
-                      onKeyDown={keyDownControl}
-                      helperText={errors["password"]}
-                      variant="outlined"
-                      margin="normal"
-                      required
-                      fullWidth
-                      name="password"
-                      label="Password"
-                      type="password"
-                      id="password"
-                      autoComplete="current-password"
-                      InputProps={{
-                        endAdornment: (
-                          <InputAdornment position="start">
-                            <VpnKeyIcon />
-                          </InputAdornment>
-                        )
-                      }}
-                    />
-                    <FormControlLabel
-                      control={<Checkbox value="remember" color="primary" />}
-                      label="Remember me"
-                    />
+                    <p>
+                      To Sign In, we will send you OTP on your registered email Id.
+                    </p>
+                    
                     <p className={"error"}>{errors["signInFailed"]}</p>
                     <Button
                       onClick={() => logIn()}
@@ -177,22 +143,10 @@ function Login(props) {
                       fullWidth
                       variant="contained"
                       color="primary"
-                      endIcon={<SendIcon></SendIcon>}
                     >
-                      Sign In
+                      SEND OTP
                     </Button>
-                    <Grid container className="links">
-                      <Grid item xs>
-                        <Link href="#" variant="body2">
-                          Forgot password?
-                        </Link>
-                      </Grid>
-                      <Grid item>
-                        <Link href="#" variant="body2">
-                          {"Don't have an account? Sign Up"}
-                        </Link>
-                      </Grid>
-                    </Grid>
+                    
                   </form>
                 </CardContent>
               </Card>
@@ -213,8 +167,8 @@ function Login(props) {
 
 const mapDispatchToProps = dispatch => {
   return {
-    userLoginDetails: (email, password) =>
-      dispatch(userLoginDetails(email, password)),
+    userLoginDetails: (email) =>
+      dispatch(userLoginDetails(email)),
     setUserSessionDetails: user => dispatch(setUserSessionDetails(user))
   };
 };
