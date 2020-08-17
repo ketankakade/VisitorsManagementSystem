@@ -4,7 +4,7 @@ import { TextField, makeStyles } from "@material-ui/core";
 import FormControl from "@material-ui/core/FormControl";
 import PropTypes from "prop-types";
 import Card from "@material-ui/core/Card";
-import "../VII/VisitorRegistration.scss";
+import "../visitorCreation/VisitorRegistration.scss";
 import Button from "@material-ui/core/Button";
 
 function UserCreation() {

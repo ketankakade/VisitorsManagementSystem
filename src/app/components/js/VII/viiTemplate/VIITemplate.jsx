@@ -2,8 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import "../VII/VIITemplate.scss";
-import UserCreation from "../VII/UserCreation";
+import "../viiTemplate/VIITemplate.scss";
+import UserCreation from "../visitorCreation/UserCreation";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MenuAppBar() {
+export default function VIITemplate() {
   const classes = useStyles();
   return (
     <div className={classes.root}>

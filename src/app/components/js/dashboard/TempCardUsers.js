@@ -123,7 +123,6 @@ function TempCardUsers(props) {
                 </TableBody> 
         </Table>
       </TableContainer>
-      />
       {/* <div className={classes.seeMore}>
         <Link color="primary" href="#" onClick={preventDefault}>
           See more Visitors
