@@ -8,10 +8,10 @@ import {
   Card,
   InputAdornment
 } from "@material-ui/core";
-import "../../css/login.scss";
+import "../loginVII/LoginVII.scss";
 import EmailIcon from '@material-ui/icons/Email';
 import { useHistory } from "react-router-dom";
-import detailsRedux from "../duck";
+import detailsRedux from "../../duck";
 import { connect } from "react-redux";
 
 const { operations } = detailsRedux;
@@ -19,7 +19,7 @@ const { userLoginDetails, setUserSessionDetails } = operations;
 
 // const UserData = require("./../../../common/data/UserData.json");
 
-function Login(props) {
+function LoginVII(props) {
   const history = useHistory();
 
   useEffect(() => {
@@ -172,4 +172,4 @@ const mapDispatchToProps = dispatch => {
     setUserSessionDetails: user => dispatch(setUserSessionDetails(user))
   };
 };
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(LoginVII);
