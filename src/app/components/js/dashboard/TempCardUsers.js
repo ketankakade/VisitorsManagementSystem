@@ -95,12 +95,13 @@ function TempCardUsers(props) {
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell align="left">Name</StyledTableCell>
-              <StyledTableCell align="left">Mobile No</StyledTableCell>
-              <StyledTableCell align="left">Email Id</StyledTableCell>
-              <StyledTableCell align="left">Contact Person</StyledTableCell>
-              <StyledTableCell align="left">Reason for Visit</StyledTableCell>
-              <StyledTableCell align="left">Is Active</StyledTableCell>
+              <StyledTableCell align="left">VISITOR NAME</StyledTableCell>
+               <StyledTableCell align="left">VISITOR PASSNO</StyledTableCell>
+              <StyledTableCell align="left">CONTACT NO</StyledTableCell>
+              <StyledTableCell align="left">CAME FROM</StyledTableCell>
+              <StyledTableCell align="left">PURPOSE OF VISIT</StyledTableCell>
+              <StyledTableCell align="left">CONTACT PERSON NAME</StyledTableCell>
+              <StyledTableCell align="left">ENTRY DATE TIME</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -109,15 +110,19 @@ function TempCardUsers(props) {
                 handleRowClick(row);
               }}>
                 <StyledTableCell align="left">{row.firstName} {row.lastName} </StyledTableCell>
+                <StyledTableCell align="left">1029475</StyledTableCell>
                 <StyledTableCell align="left">{row.contactNo}</StyledTableCell>
-                <StyledTableCell align="left">{row.email}</StyledTableCell>
-                  <StyledTableCell align="left">
+                <StyledTableCell align="left">{row.placeOfVisit}</StyledTableCell>
+                <StyledTableCell align="left">{row.reasonForVisit}</StyledTableCell>
+                {/* <StyledTableCell align="left">
+                  { props.showTitle!=='' ? "Yes" : "No"}
+                </StyledTableCell> */}
+                 <StyledTableCell align="left">
                   {row.visits[0].contactPerson.firstName} {row.visits[0].contactPerson.lastName}
                   </StyledTableCell>
-                <StyledTableCell align="left">{row.reasonForVisit}</StyledTableCell>
-                <StyledTableCell align="left">
-                  { props.showTitle!=='' ? "Yes" : "No"}
-                </StyledTableCell>
+                   <StyledTableCell align="left"> {row.visits && row.visits.length > 0
+                ? row.visits[0].timeSlot.startTime
+                : ""}</StyledTableCell>
               </StyledTableRow>
             ))}
                 </TableBody> 
