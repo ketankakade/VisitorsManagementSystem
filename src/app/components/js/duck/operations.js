@@ -80,13 +80,13 @@ const clearUserSessionDetails = () => dispatch => {
 const getAllVisitorsDetails = () => dispatch => {
   return new Promise((resolve, reject) => {
     let url =
-      "http://localhost:8085/wrapper/list?pageNo=0&pageSize=10&sort=firstName";
+      "http://localhost:8085/vms-gateway/visitor?index=0&size=10&sortBy=firstName&orderBy=ASC";
     axios
       .get(url)
       .then(response => {
         try {
             console.log(response);
-          if (response && response.data && response.data.messageCode === 200) {
+          if (response && response.data && response.data.statusCode === 200) {
             const resp = getAllVisitors(response.data);
             
             dispatch(resp);
