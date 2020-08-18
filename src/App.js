@@ -3,14 +3,13 @@ import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Grid } from "@material-ui/core";
 import { withRouter } from "react-router";
-import Login from "./app/components/js/Login/login";
+// import Login from "./app/components/js/Login/login";
 import "./app/common/css/global.scss";
  import NewTemplate from './NewTemplate';
 import { Provider } from "react-redux";
 import { store } from "./app/store";
 import LoginVII from "./app/components/js/VII/loginVII/LoginVII";
- import UserCreation from "./app/components/js/VII/visitorCreation/UserCreation";
-import VisitorBadge from "./app/components/js/VII/visitorsPass/VisitorBadge";
+import LoginLayout from "./app/components/js/Login/LoginLayout";
  import VIITemplate from "./app/components/js/VII/viiTemplate/VIITemplate";
 
 function App() {
@@ -21,10 +20,10 @@ function App() {
           <Grid container justify="center">
             <Switch>
               <Route path="/VIIlogin" exact component={withRouter(LoginVII)} />
-              <Route path="/userCreation" component={withRouter(UserCreation)} />
+              {/* <Route path="/userCreation" component={withRouter(UserCreation)} /> */}
               <Route path="/VisitorTemplate" exact component={withRouter(VIITemplate)} />
-              <Route path="/visitorPass" component={withRouter(VisitorBadge)} />
-              <Route path="/login" exact component={withRouter(Login)} />
+              {/* <Route path="/visitorPass" component={withRouter(VisitorBadge)} /> */}
+              <Route path="/login" exact component={withRouter(LoginLayout)} />
               <Route path="/" component={withRouter(NewTemplate)} />
             </Switch>
           </Grid>
