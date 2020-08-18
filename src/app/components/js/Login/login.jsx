@@ -11,7 +11,7 @@ import {
   Card,
   InputAdornment
 } from "@material-ui/core";
-import "../../css/login.scss";
+import "../Login/login.scss";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import SendIcon from "@material-ui/icons/Send";
@@ -111,7 +111,7 @@ function Login(props) {
                 <img
                   alt="Quest"
                   className="logo"
-                  src={process.env.PUBLIC_URL + "/images/Quest2x.png"}
+                  src={process.env.PUBLIC_URL + "/images/Image 4.png"}
                 />
                 <Typography component="h6" variant="h5">
                   Sign in with your Quest account
@@ -204,7 +204,6 @@ function Login(props) {
   );
 }
 
-//export default Login;
 // const mapStateToProps = ({ details }) => {
 //   return {
 //     details: details? details.userDetails:{}

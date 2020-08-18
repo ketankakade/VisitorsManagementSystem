@@ -64,7 +64,7 @@ const series = React.useMemo(
     <div
       style={{
         width: "100%",
-        height: "150px"
+        height: "200px"
       }}
     >
     <div style={{float:'right'}}>

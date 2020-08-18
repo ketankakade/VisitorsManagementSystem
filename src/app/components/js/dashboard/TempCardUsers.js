@@ -96,11 +96,11 @@ function TempCardUsers(props) {
           <TableHead>
             <TableRow>
               <StyledTableCell align="left">VISITOR NAME</StyledTableCell>
-               <StyledTableCell align="left">VISITOR PASSNO</StyledTableCell>
+               <StyledTableCell align="left">PASSNO</StyledTableCell>
               <StyledTableCell align="left">CONTACT NO</StyledTableCell>
               <StyledTableCell align="left">CAME FROM</StyledTableCell>
               <StyledTableCell align="left">PURPOSE OF VISIT</StyledTableCell>
-              <StyledTableCell align="left">CONTACT PERSON NAME</StyledTableCell>
+              <StyledTableCell align="left">CONTACT PERSON</StyledTableCell>
               <StyledTableCell align="left">ENTRY DATE TIME</StyledTableCell>
             </TableRow>
           </TableHead>

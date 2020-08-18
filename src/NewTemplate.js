@@ -12,7 +12,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { withRouter } from "react-router";
 import "./app/common/css/global.scss";
 import DashboardNew from "./app/components/js/dashboardnew/DashboardNew";
-import TabsNav from "./app/components/js/tabs/Tabs";
 import PopoverPopupState from "./app/components/js/Sidebar/userIcon";
 import Dashboard from "./app/components/js/dashboard/Dashboard";
 import TempCardUsers from "./app/components/js/dashboard/TempCardUsers";

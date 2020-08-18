@@ -21,7 +21,6 @@ import { withRouter } from "react-router";
 import "./app/common/css/global.scss";
 
 import TabsNav from "./app/components/js/tabs/Tabs";
-import PopoverPopupState from "./app/components/js/Sidebar/userIcon";
 import Dashboard from "./app/components/js/dashboard/Dashboard";
 
 import detailsRedux from "./app/components/js/duck";
