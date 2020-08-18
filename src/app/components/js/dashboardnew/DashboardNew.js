@@ -12,7 +12,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import MyChart from "./Chart";
+import PieChart from "./Chart";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import { connect } from "react-redux";
 import detailsRedux from "../duck";
@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   },
 
   cardMargin: {
-    marginBottom: "20px"
+    marginBottom: "17px"
   },
   cardButton: {
     width: "100%"
@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
   header: {
     textAlign: "left",
     width: "100%",
-   fontSize: "18px"
+    fontSize: "18px"
 
   },
   subheader: {
@@ -59,7 +59,8 @@ const useStyles = makeStyles(theme => ({
   visitorTitle: {
     display: "flex",
     width: "80%",
-   fontSize: "18px"
+    fontSize: "18px",
+    color: "#0488bd"
   },
   category: {
     display: "flex",
@@ -73,17 +74,17 @@ const useStyles = makeStyles(theme => ({
   avatar: {
     backgroundColor: "red"
   },
-  keyImage:{
-    height:"50px",
-    width:"50px"
+  keyImage: {
+    height: "50px",
+    width: "50px"
   },
-  headline:{
-    fontSize:'26px',
-    color:'red'
+  headline: {
+    fontSize: '26px',
+    color: 'red'
   },
-  headlinePrev :{
-    fontSize:'26px',
-    color:'#0f72a1'
+  headlinePrev: {
+    fontSize: '26px',
+    color: '#0f72a1'
   }
 
 }));
@@ -109,30 +110,30 @@ const DashboardNew = () => {
                   <div className={classes.visitorTitle}>
                     Today's Total Visitors
                   </div>
-                  <div  className={classes.type}>
-                  <TextField
-                   size="small"
-                    variant="outlined"
-                    margin="normal"
-                    required
-                    select
-                    fullWidth
-                    id="type"
-                    label="Type"
-                    name="type"                 
-                  >
-                    <MenuItem value={10}>All office Locations</MenuItem>
-                    <MenuItem value={20}>4th floor</MenuItem>
-                    <MenuItem value={30}>5th floor</MenuItem>
-                  </TextField>
-                </div>
+                  <div className={classes.type}>
+                    <TextField
+                      size="small"
+                      variant="outlined"
+                      margin="normal"
+                      required
+                      select
+                      fullWidth
+                      id="type"
+                      label="Type"
+                      name="type"
+                    >
+                      <MenuItem value={10}>All office Locations</MenuItem>
+                      <MenuItem value={20}>4th floor</MenuItem>
+                      <MenuItem value={30}>5th floor</MenuItem>
+                    </TextField>
+                  </div>
                 </div>
               }
               subheader=""
             />
             <CardContent>
               <Typography variant="body2" color="textSecondary" component="div">
-                <MyChart />
+                <PieChart />
               </Typography>
             </CardContent>
           </Card>
@@ -150,14 +151,14 @@ const DashboardNew = () => {
                 <CardHeader
                   className={classes.header}
                   avatar={
-                  <img alt=""src={process.env.PUBLIC_URL + "/images/noun_identity card_2035079 (2).svg"}/>
+                    <img alt="" src={process.env.PUBLIC_URL + "/images/noun_identity card_2035079 (2).svg"} />
                   }
                   title={<div className={classes.headlinePrev}>
-                  Visitors
-                  </div>  }                
+                    Visitors
+                  </div>}
                   subheader={
                     <div className={classes.subheader}>
-                    Pending for approval
+                      Pending for approval
                     </div>
                   }
                 />
@@ -175,14 +176,14 @@ const DashboardNew = () => {
                 <CardHeader
                   className={classes.header}
                   avatar={
-                  <img className={classes.keyImage} alt=""src={process.env.PUBLIC_URL + "/images/001-key-card@2x.png"}/>
+                    <img className={classes.keyImage} alt="" src={process.env.PUBLIC_URL + "/images/001-key-card@2x.png"} />
                   }
                   title={<div className={classes.headlinePrev}>
-                  Employees
+                    Employees
                   </div>}
                   subheader={
                     <div className={classes.subheader}>
-                     Temporary access card used today
+                      Temporary access card used today
                     </div>
                   }
                 />
@@ -200,9 +201,9 @@ const DashboardNew = () => {
                 <CardHeader
                   className={classes.header}
                   avatar={
-                  <img alt=""src={process.env.PUBLIC_URL + "/images/Group 3445 (1).svg"}/>
-                  }   title={<div className={classes.headline}>
-                  Users
+                    <img alt="" src={process.env.PUBLIC_URL + "/images/Group 3445 (1).svg"} />
+                  } title={<div className={classes.headline}>
+                    Users
                   </div>
                   }
                   subheader={
