@@ -12,7 +12,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import MyChart from "./Chart";
+import PieChart from "./Chart";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import { connect } from "react-redux";
 import detailsRedux from "../duck";
@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   },
 
   cardMargin: {
-    marginBottom: "20px"
+    marginBottom: "15px"
   },
   cardButton: {
     width: "100%"
@@ -59,7 +59,8 @@ const useStyles = makeStyles(theme => ({
   visitorTitle: {
     display: "flex",
     width: "80%",
-   fontSize: "18px"
+   fontSize: "18px",
+   color:"#0488bd"
   },
   category: {
     display: "flex",
@@ -132,7 +133,7 @@ const DashboardNew = () => {
             />
             <CardContent>
               <Typography variant="body2" color="textSecondary" component="div">
-                <MyChart />
+                <PieChart />
               </Typography>
             </CardContent>
           </Card>
