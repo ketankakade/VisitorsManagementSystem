@@ -12,12 +12,10 @@ import "../../../components/css/dashboard.scss";
 import { TableContainer, Paper } from "@material-ui/core";
 import detailsRedux from "../duck";
 
-
 const visitorData = require("./../../../common/data/VisitorsData.json");
 
 const { operations } = detailsRedux;
 const { getAllVisitorsDetails } = operations;
-
 
 const StyledTableCell = withStyles(theme => ({
   head: {
@@ -64,7 +62,6 @@ function VisitorsList(props) {
   return (
     <div className="parent">
       <Title>Visitors List</Title>
-
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>

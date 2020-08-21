@@ -23,7 +23,6 @@ function VisitorsDetails(props) {
   }, [props]);
 
   const [idType, setIdType] = React.useState("");
-  // const [file, setFile] = React.useState('');
 
   const handleChange = event => {
     setIdType(event.target.value);

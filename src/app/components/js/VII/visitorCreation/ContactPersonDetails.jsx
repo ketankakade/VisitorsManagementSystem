@@ -2,20 +2,44 @@ import React, { useState, useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
 import { TextField, makeStyles } from "@material-ui/core";
 import PropTypes from "prop-types";
+import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
-import { connect } from "react-redux";
 import Card from "@material-ui/core/Card";
 import { useHistory } from "react-router-dom";
 import "../visitorCreation/VisitorRegistration.scss";
 
-function UserCreation(props) {
-  const [user, setUser] = useState({});
-
+function ContactPersonDetails(props) {
   const EMAIL_REGEX = /^([\w+-]+(?:\.[\w+-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
-  const PAN_REGEX = /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/;
   const history = useHistory();
 
   const [errors, setErrors] = useState({});
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    if (!(props && props.location && props.location.state)) {
+      history.push("/VIIlogin");
+    } else {
+      const user = props.location.state.user;
+      if (!(user && user.email && user.email !== "")) {
+        history.push("/VIIlogin");
+      } else {
+        setUser(user);
+      }
+    }
+  }, [props, setUser]);
+
+let onSubmit = e => {
+    if (validateForm()) {
+      e.preventDefault();
+      console.log(user);
+      history.push({
+        pathname: "/visitorPass",
+        state: {
+          user: user
+        }
+      });
+    }
+  };
 
   const useStyles = makeStyles({
     card: {
@@ -30,65 +54,34 @@ function UserCreation(props) {
   });
   const classes = useStyles();
 
-  useEffect(() => {
-    debugger;
-    if (!(props && props.location && props.location.state)) {
-      history.push("/VIIlogin");
-    } else {
-      const email = props.location.state.email;
-      if (!(email && user.email !== "")) {
-        history.push("/VIIlogin");
-      } else {
-        setUser({ email: email });
-      }
-    }
-  }, [props, setUser]);
-
   const validateForm = () => {
     let formIsValid = true;
     let errors = {};
-    if (user["name"] === "" || user["name"] === undefined) {
+    if (user["contactName"] === "" || user["contactName"] === undefined) {
       formIsValid = false;
-      errors["name"] = "Name cannot be blank";
+      errors["contactName"] = "Contact person name cannot be blank";
     }
-    if (user["email"] === "" || user["email"] === undefined) {
+    if (user["contactEmail"] === "" || user["contactEmail"] === undefined) {
       formIsValid = false;
-      errors["email"] = "Email address cannot be blank";
+      errors["contactEmail"] = "Contact person email address cannot be blank";
     } else if (!EMAIL_REGEX.test(user["email"])) {
       formIsValid = false;
-      errors["email"] = "Invalid email address";
+      errors["email"] = "Invalid contact person email address";
     }
-    if (user["mobile"] === "" || user["mobile"] === undefined) {
+    if (user["contactMobile"] === "" || user["contactMobile"] === undefined) {
       formIsValid = false;
-      errors["mobile"] = "Mobile No cannot be blank";
+      errors["contactMobile"] = "Contact person mobile no cannot be blank";
     } else if (user["mobile"].length !== 10) {
       formIsValid = false;
-      errors["mobile"] = "Please enter valid Mobile no";
+      errors["contactMobile"] = "Please enter valid Contact person mobile no";
     }
-    if (user["pan"] === "" || user["pan"] === undefined) {
+    if (user["purpose"] === "" || user["purpose"] === undefined) {
       formIsValid = false;
-      errors["pan"] = "PAN No cannot be blank";
-    } else if (!PAN_REGEX.test(user["pan"])) {
-      formIsValid = false;
-      errors["pan"] = "Invalid PAN number";
+      errors["purpose"] = "Purpose of visit cannot be blank";
     }
 
     setErrors(errors);
     return formIsValid;
-  };
-
-  let onSubmit = e => {
-    if (validateForm()) {
-      e.preventDefault();
-      console.log(user);
-      //history.push("/contactPersonDetails");
-      history.push({
-        pathname: "/contactPersonDetails",
-        state: {
-          user: user
-        }
-      });
-    }
   };
 
   let onCancel = e => {
@@ -110,7 +103,7 @@ function UserCreation(props) {
           </p>
         </div>
         <div className="subHeading">
-          <h2> Step 1 of 2 - Personal Detail.</h2>
+          <h2> Step 2 of 2 - Contact Detail.</h2>
         </div>
         <Card className={classes.card}>
           <Grid container spacing={1}>
@@ -120,16 +113,16 @@ function UserCreation(props) {
                 margin="normal"
                 required
                 fullWidth
-                id="name"
-                label="Name"
+                id="contactName"
+                label="Contact Person Name"
                 placeholder="Enter Name"
-                name="name"
-                autoComplete="name"
+                name="contactName"
+                autoComplete="contactName"
                 autoFocus
-                value={user["name"]}
-                onChange={e => changeControlValue(e, "name")}
-                error={errors["name"] ? true : false}
-                helperText={errors["name"]}
+                value={user["contactName"]}
+                onChange={e => changeControlValue(e, "contactName")}
+                error={errors["contactName"] ? true : false}
+                helperText={errors["contactName"]}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -138,16 +131,16 @@ function UserCreation(props) {
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label="Email Id"
+                id="contactEmail"
+                label="Contact Person Email Id"
                 placeholder="Enter Email Id"
-                name="email"
-                autoComplete="email"
+                name="contactEmail"
+                autoComplete="contactEmail"
                 autoFocus
-                value={user["email"]}
-                onChange={e => changeControlValue(e, "email")}
-                error={errors["email"] ? true : false}
-                helperText={errors["email"]}
+                value={user["contactEmail"]}
+                onChange={e => changeControlValue(e, "contactEmail")}
+                error={errors["contactEmail"] ? true : false}
+                helperText={errors["contactEmail"]}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -156,16 +149,16 @@ function UserCreation(props) {
                 margin="normal"
                 required
                 fullWidth
-                id="mobile"
-                label="Mobile No"
+                id="contactMobile"
+                label="Contact Person Mobile No"
                 placeholder="Enter 10 Digit Number"
-                name="mobile"
-                autoComplete="mobile"
+                name="contactMobile"
+                autoComplete="contactMobile"
                 autoFocus
-                value={user["mobile"]}
-                onChange={e => changeControlValue(e, "mobile")}
-                error={errors["mobile"] ? true : false}
-                helperText={errors["mobile"]}
+                value={user["contactMobile"]}
+                onChange={e => changeControlValue(e, "contactMobile")}
+                error={errors["contactMobile"] ? true : false}
+                helperText={errors["contactMobile"]}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -173,18 +166,26 @@ function UserCreation(props) {
                 variant="outlined"
                 margin="normal"
                 required
+                select
                 fullWidth
-                id="pan"
-                label="PAN No"
-                placeholder="Enter PAN Number"
-                name="pan"
-                autoComplete="pan"
-                autoFocus
-                value={user["pan"]}
-                onChange={e => changeControlValue(e, "pan")}
-                error={errors["pan"] ? true : false}
-                helperText={errors["pan"]}
-              />
+                id="purpose"
+                label="Purpose Of Visit"
+                name="purpose"
+                value={user["purpose"]}
+                onChange={e => changeControlValue(e, "purpose")}
+                error={errors["purpose"] ? true : false}
+                helperText={errors["purpose"]}
+              >
+                <MenuItem key={"10"} value={"10"}>
+                  {"Official"}
+                </MenuItem>
+                <MenuItem key={"20"} value={"20"}>
+                  {"Personal"}
+                </MenuItem>
+                <MenuItem key={"30"} value={"30"}>
+                  {"Interview"}
+                </MenuItem>
+              </TextField>
             </Grid>
 
             <Grid item xs={12} sm={12}>
@@ -194,15 +195,15 @@ function UserCreation(props) {
                 multiline
                 fullWidth
                 id="description"
-                label="Description(optional)"
+                label="Meeting Description(optional)"
                 placeholder="Write you description here"
                 name="description"
                 autoComplete="description"
                 autoFocus
-                value={user["description"]}
-                onChange={e => changeControlValue(e, "description")}
-                error={errors["description"] ? true : false}
-                helperText={errors["description"]}
+                value={user["meetingDescription"]}
+                onChange={e => changeControlValue(e, "meetingDescription")}
+                error={errors["meetingDescription"] ? true : false}
+                helperText={errors["meetingDescription"]}
               />
             </Grid>
           </Grid>
@@ -220,8 +221,7 @@ function UserCreation(props) {
             color="primary"
             onClick={e => onSubmit(e)}
           >
-            {" "}
-            NEXT
+            SUBMIT
           </Button>
         </Grid>
       </Grid>
@@ -229,10 +229,4 @@ function UserCreation(props) {
   );
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    // signUpSuccess: () => dispatch(signUpSuccess())
-  };
-};
-
-export default connect(null, mapDispatchToProps)(UserCreation);
+export default ContactPersonDetails;
