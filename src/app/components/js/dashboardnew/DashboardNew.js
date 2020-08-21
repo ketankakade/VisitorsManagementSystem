@@ -1,29 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-
 import { TextField } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
-import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import PieChart from "./Chart";
+import MyChart from "./Chart";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import { connect } from "react-redux";
 import detailsRedux from "../duck";
 import { useHistory } from "react-router-dom";
 import TempCardUsers from "../../js/dashboard/TempCardUsers";
-// import EnhancedTable from '../../js/dashboard/thisMonth';
 
 const { operations } = detailsRedux;
 const { getAllVisitorsDetails } = operations;
 
-const visitorData = require("./../../../common/data/VisitorsData.json");
+// const visitorData = require("./../../../common/data/VisitorsData.json");
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -92,8 +86,6 @@ const useStyles = makeStyles(theme => ({
 const DashboardNew = () => {
   const classes = useStyles();
   const history = useHistory();
-  const [category, setCategory] = useState("10");
-  const [type, setType] = useState("10");
 
   const handleCardClick = type => {
     history.push("/" + type);
@@ -133,7 +125,7 @@ const DashboardNew = () => {
             />
             <CardContent>
               <Typography variant="body2" color="textSecondary" component="div">
-                <PieChart />
+                <MyChart />
               </Typography>
             </CardContent>
           </Card>

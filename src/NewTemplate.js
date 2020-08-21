@@ -13,7 +13,6 @@ import { withRouter } from "react-router";
 import "./app/common/css/global.scss";
 import DashboardNew from "./app/components/js/dashboardnew/DashboardNew";
 import PopoverPopupState from "./app/components/js/Sidebar/userIcon";
-import Dashboard from "./app/components/js/dashboard/Dashboard";
 import TempCardUsers from "./app/components/js/dashboard/TempCardUsers";
 import VisitorDetails from "./app/components/js/dashboard/VisitorsDetails";
 import detailsRedux from "./app/components/js/duck";

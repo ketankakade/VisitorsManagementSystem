@@ -4,19 +4,24 @@
             "id": 1,
             "emailId": "leena@quest.com",
             "password": "leena123",
-            "name":"Leena Patil"
+            "name":"Leena Patil",
+            "otp":"12345"
         },
         {
             "id": 2,
-            "emailId": "krupa@quest.com",
-            "password": "krupa123",
-            "name":"Krupa"
+            "emailId": "ketan@quest.com",
+            "password": "ketan123",
+            "name":"ketan",
+            "otp":"12345"
+
         },
         {
             "id": 3,
             "emailId": "rama@quest.com",
             "password": "rama123",
-            "name":"Rama"
+            "name":"Rama",
+            "otp":"12345"
+
         }
     ]
 }

@@ -9,8 +9,7 @@ function ThankYou() {
     </Grid>
     <Grid item sm={12} className="text-container">
     <h1> Thank you for applying for visitor pass.</h1>
-    <p> Please wait till the time you get an approval mail to your registered email id - 
-        rama@gmail.com </p>
+    <p> Please wait till the time you get an approval mail to your registered email id.</p>
     </Grid>
     </Grid>
 

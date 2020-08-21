@@ -1,0 +1,3 @@
+export const USER_REGISTER = 'USER_REGISTER';
+export const VALIDATE_USER ='VALIDATE_USER';
+export const CREATE_VISITOR = 'CREATE_VISITOR';

@@ -1,0 +1,30 @@
+.cancel-registration-container {
+  border-radius: 10px;
+  padding: 50px;
+  max-width: 798px;
+  .modal-content-height {
+    .headingText {
+      font-size: 24px;
+      letter-spacing: 0px;
+    }
+    .description-grid {
+      padding-top: 27px;
+      .description {
+        line-height: 20px;
+        padding-bottom:15px;
+      }
+    }
+    .button-group {
+      padding-top: 10%;
+      display: flex;
+      .keep-button {
+        margin-right: 16px;
+        height: 40px;
+      }
+      .cancel-button {
+        margin-right: 16px;
+        height: 40px;
+      }
+    }
+  }
+}
